@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workspace | InsightEngine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+        }
+
+        .transcript-line:hover .timestamp {
+            opacity: 1;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#191c1e",
+                      "on-primary-container": "#7c839b",
+                      "surface-bright": "#f7f9fb",
+                      "primary": "#000000",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-container": "#fefcff",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#c6c6cd",
+                      "tertiary-fixed": "#ffddb8",
+                      "inverse-on-surface": "#eff1f3",
+                      "error": "#ba1a1a",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "surface-tint": "#565e74",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "surface-container-low": "#f2f4f6",
+                      "on-secondary-fixed-variant": "#004395",
+                      "outline": "#76777d",
+                      "on-primary-fixed": "#131b2e",
+                      "on-error-container": "#93000a",
+                      "error-container": "#ffdad6",
+                      "on-error": "#ffffff",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e0e3e5",
+                      "surface": "#f7f9fb",
+                      "secondary-fixed": "#d8e2ff",
+                      "on-tertiary-fixed": "#2a1700",
+                      "on-surface": "#191c1e",
+                      "secondary": "#0058be",
+                      "surface-container": "#eceef0",
+                      "on-surface-variant": "#45464d",
+                      "primary-fixed": "#dae2fd",
+                      "surface-variant": "#e0e3e5",
+                      "inverse-primary": "#bec6e0",
+                      "tertiary-container": "#2a1700",
+                      "on-secondary-fixed": "#001a42",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "inverse-surface": "#2d3133"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "stack-sm": "12px",
+                      "stack-md": "24px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "container-max": "1280px",
+                      "stack-lg": "48px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Hanken Grotesk"],
+                      "label-sm": ["JetBrains Mono"],
+                      "headline-lg-mobile": ["Hanken Grotesk"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "quote-display": ["Inter"],
+                      "display-lg": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "quote-display": ["20px", {"lineHeight": "32px", "fontWeight": "500"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen selection:bg-secondary/10 overflow-hidden">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline z-40 flex justify-between items-center px-gutter h-16 w-full flat no shadows">
+<div class="flex items-center gap-stack-md">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary dark:text-on-primary-fixed">InsightEngine</span>
+<div class="hidden md:flex items-center ml-gutter gap-4">
+<span class="text-secondary font-bold border-b-2 border-secondary font-body-md text-body-md px-2 py-1 cursor-pointer">Workspace</span>
+<span class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low transition-colors font-body-md text-body-md px-2 py-1 rounded cursor-pointer">Explore</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-bold text-body-md transition-all active:scale-95">New Transcript</button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary cursor-pointer p-2 hover:bg-surface-container-low rounded-full">notifications</span>
+<span class="material-symbols-outlined text-secondary cursor-pointer p-2 hover:bg-surface-container-low rounded-full">settings</span>
+<img alt="User profile" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="A professional headshot of a young male executive with a confident smile, set against a blurred, high-end office background with soft natural lighting. The image style is clean, corporate, and minimalist, utilizing a bright and sophisticated color palette that aligns with a high-stakes professional environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBThRq6fZO_icikblnXmN4Gwepi0-z14OXHiSyCFdOini1Un7eyWZMK-VyQcIRGc5578_DgC8JlUA0_0RYrHdGvaZU6VIS8ADP_nprSIIb2-a2_QzjOUby7WjVpApXRONNth74oi2gNyBX51i5AvVuZtYuQiThpIvjZ7cFIB26iHnCLqc7HcXBhfA3waWM0GBHZgKnZEN_MvUvLxcJcNGUuIxtQVhKtEXd5mduk37yPeqx_jPSRhZO1c8TMJ0ZtYO9nmr6ncR03wHvn"/>
+</div>
+</div>
+</header>
+<div class="flex h-[calc(100vh-64px)] overflow-hidden">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col h-full py-stack-md px-4 border-r border-outline-variant dark:border-outline bg-surface-container-low dark:bg-surface-container-lowest w-64 shrink-0">
+<div class="mb-stack-lg">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 bg-primary rounded flex items-center justify-center text-on-primary font-bold">T</div>
+<div>
+<h2 class="font-headline-lg text-headline-lg font-semibold text-primary leading-none">Transcript Pro</h2>
+<span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">Enterprise Tier</span>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-secondary dark:text-secondary-fixed font-bold bg-secondary-fixed-dim/10 rounded-lg transition-all scale-95 active:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-sm text-label-sm">Workspace</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg scale-95 active:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg scale-95 active:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+<span class="font-label-sm text-label-sm">Library</span>
+</a>
+</nav>
+<div class="mt-auto space-y-1 pt-stack-md">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm">History</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-sm text-label-sm">Help</span>
+</a>
+<div class="mt-4 p-4 bg-primary-container rounded-xl text-on-primary-container">
+<p class="text-xs mb-2 opacity-80">Storage at 84%</p>
+<div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden mb-3">
+<div class="h-full bg-secondary-fixed-dim w-[84%]"></div>
+</div>
+<button class="w-full py-2 bg-white text-primary text-xs font-bold rounded-lg hover:bg-secondary-fixed transition-colors uppercase tracking-wider">Upgrade Plan</button>
+</div>
+</div>
+</aside>
+<!-- Main Workspace Area -->
+<main class="flex-1 flex flex-col md:flex-row overflow-hidden relative">
+<!-- Editor Column -->
+<section class="flex-1 flex flex-col min-w-0 bg-white">
+<!-- Toolbar -->
+<div class="h-12 border-b border-outline-variant flex items-center px-gutter justify-between bg-surface-bright/50">
+<div class="flex items-center gap-4 text-on-surface-variant">
+<span class="font-label-sm text-label-sm bg-secondary/5 text-secondary px-2 py-0.5 rounded">AUTO-SAVED</span>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] cursor-pointer hover:text-secondary">undo</span>
+<span class="material-symbols-outlined text-[18px] cursor-pointer hover:text-secondary">redo</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 text-body-md font-medium text-secondary hover:bg-secondary/5 px-3 py-1 rounded transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+                            Share
+                        </button>
+</div>
+</div>
+<!-- Text Area -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-gutter lg:px-24 xl:px-48 scroll-smooth">
+<div class="max-w-[720px] mx-auto py-stack-md">
+<input class="w-full text-headline-lg font-headline-lg border-none focus:ring-0 placeholder:opacity-20 mb-stack-md px-0 bg-transparent" placeholder="Untitled Transcript" type="text" value="Quarterly Strategy Sync - Product Architecture"/>
+<div class="space-y-stack-md font-body-lg text-body-lg text-on-surface/90 leading-relaxed">
+<div class="transcript-line relative group border-l-4 border-secondary pl-6 py-1">
+<div class="flex justify-between items-baseline mb-1">
+<span class="font-bold text-primary text-sm uppercase tracking-wider">Sarah Chen (CEO)</span>
+<span class="timestamp opacity-0 font-label-sm text-label-sm text-outline-variant transition-opacity">00:12</span>
+</div>
+<p class="focus:outline-none" contenteditable="true">Alright everyone, let's dive into the core architecture decisions for Q3. We've been seeing some latency spikes in the message processing queue, and I want to make sure the AgentPrep rollout doesn't exacerbate that. David, what's the current status of the Kafka migration?</p>
+</div>
+<div class="transcript-line relative group border-l-4 border-transparent pl-6 py-1 hover:border-outline-variant transition-colors">
+<div class="flex justify-between items-baseline mb-1">
+<span class="font-bold text-on-surface-variant text-sm uppercase tracking-wider">David Miller (CTO)</span>
+<span class="timestamp opacity-0 font-label-sm text-label-sm text-outline-variant transition-opacity">00:45</span>
+</div>
+<p class="focus:outline-none" contenteditable="true">The migration is about 70% complete. We hit a snag with the legacy auth protocols, but we should have that ironed out by Tuesday. Regarding the AgentPrep rollout, we've designed a specialized caching layer that should actually reduce the overall load on the primary DB by about 15%.</p>
+</div>
+<div class="transcript-line relative group border-l-4 border-transparent pl-6 py-1 hover:border-outline-variant transition-colors">
+<div class="flex justify-between items-baseline mb-1">
+<span class="font-bold text-on-surface-variant text-sm uppercase tracking-wider">Sarah Chen (CEO)</span>
+<span class="timestamp opacity-0 font-label-sm text-label-sm text-outline-variant transition-opacity">01:12</span>
+</div>
+<p class="focus:outline-none" contenteditable="true">That's encouraging. What about the feedback from the beta group regarding the AI synthesis speed? Some users mentioned it feels 'clunky' when they are live-editing. We need to prioritize that real-time feel.</p>
+</div>
+<div class="p-4 bg-secondary/5 rounded-lg border border-secondary/10 italic text-on-surface-variant text-body-md mt-stack-lg">
+                                [AI Note: The speaker is emphasizing urgency regarding UI responsiveness.]
+                            </div>
+<div class="transcript-line relative group border-l-4 border-transparent pl-6 py-1 hover:border-outline-variant transition-colors">
+<div class="flex justify-between items-baseline mb-1">
+<span class="font-bold text-on-surface-variant text-sm uppercase tracking-wider">David Miller (CTO)</span>
+<span class="timestamp opacity-0 font-label-sm text-label-sm text-outline-variant transition-opacity">02:05</span>
+</div>
+<p class="focus:outline-none" contenteditable="true">Agreed. We're implementing optimistic UI updates for the editor. This means the transcript will appear to update instantly while the AI processing happens in the background. I'll need Sarah to sign off on the new compute budget for this by Friday.</p>
+</div>
+<!-- Empty state for user to keep typing -->
+<div class="h-40 cursor-text" onclick="this.querySelector('p').focus()">
+<p class="focus:outline-none empty:before:content-[attr(placeholder)] empty:before:text-outline-variant" contenteditable="true" placeholder="Start typing or paste your transcript here..."></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Bottom Action -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-bold shadow-lg flex items-center gap-3 hover:scale-105 active:scale-95 transition-all group" id="analyzeBtn">
+<span class="material-symbols-outlined group-hover:rotate-180 transition-transform">bolt</span>
+                        Analyze Transcript
+                    </button>
+</div>
+</section>
+<!-- AI Insights Panel -->
+<aside class="w-full md:w-80 lg:w-96 border-l border-outline-variant bg-surface-container-low/50 flex flex-col overflow-hidden">
+<div class="p-6 border-b border-outline-variant bg-white flex items-center justify-between">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">auto_awesome</span>
+                        AI Insights
+                    </h3>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container rounded p-1">more_vert</span>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-stack-md custom-scrollbar" id="insightsContainer">
+<!-- High Level Summary -->
+<div class="space-y-3">
+<h4 class="font-bold text-xs uppercase tracking-widest text-outline">High-Level Summary</h4>
+<div class="bg-white p-4 rounded-xl border border-outline-variant shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 h-full w-1 bg-secondary"></div>
+<p class="text-body-md text-on-surface leading-relaxed">
+                                Strategy session focused on Q3 architecture and the AgentPrep rollout. Key concerns include Kafka migration status and system latency.
+                            </p>
+</div>
+</div>
+<!-- Key Takeaways -->
+<div class="space-y-3">
+<h4 class="font-bold text-xs uppercase tracking-widest text-outline">Key Takeaways</h4>
+<div class="space-y-2">
+<div class="flex gap-3 items-start p-3 bg-white rounded-lg border border-outline-variant group hover:border-secondary transition-colors">
+<div class="mt-1 w-2 h-2 rounded-full bg-secondary shrink-0"></div>
+<p class="text-body-md text-on-surface-variant">Kafka migration is 70% complete; legacy auth snag identified.</p>
+</div>
+<div class="flex gap-3 items-start p-3 bg-white rounded-lg border border-outline-variant group hover:border-secondary transition-colors">
+<div class="mt-1 w-2 h-2 rounded-full bg-secondary shrink-0"></div>
+<p class="text-body-md text-on-surface-variant">AgentPrep caching layer expected to reduce DB load by 15%.</p>
+</div>
+<div class="flex gap-3 items-start p-3 bg-white rounded-lg border border-outline-variant group hover:border-secondary transition-colors">
+<div class="mt-1 w-2 h-2 rounded-full bg-secondary shrink-0"></div>
+<p class="text-body-md text-on-surface-variant">Real-time UI responsiveness prioritized for beta user satisfaction.</p>
+</div>
+</div>
+</div>
+<!-- Follow-Ups -->
+<div class="space-y-3">
+<h4 class="font-bold text-xs uppercase tracking-widest text-outline">Action Items</h4>
+<div class="bg-tertiary-fixed/10 p-4 rounded-xl border border-tertiary-fixed-dim/30 space-y-3">
+<div class="flex items-center gap-3">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="text-body-md font-medium text-on-tertiary-fixed-variant">Sarah: Sign off compute budget by Friday</span>
+</div>
+<div class="flex items-center gap-3">
+<input class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="text-body-md font-medium text-on-tertiary-fixed-variant">David: Resolve legacy auth snag (Tuesday)</span>
+</div>
+<div class="flex items-center gap-3">
+<input checked="" class="rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<span class="text-body-md font-medium text-on-tertiary-fixed-variant line-through opacity-50">Draft Q3 rollout timeline</span>
+</div>
+</div>
+</div>
+<!-- Contextual Imagery -->
+<div class="pt-stack-md">
+<div class="rounded-xl overflow-hidden border border-outline-variant h-48 relative">
+<img alt="Analytics dashboard" class="w-full h-full object-cover" data-alt="A futuristic and sleek data visualization dashboard displayed on a high-resolution glass screen. The visuals include glowing blue and amber charts, intricate network diagrams, and clean typography. The background is a dark, professional studio environment with soft bokeh effects. The lighting is sophisticated and moody, highlighting the precision and authority of the data-driven intellectual workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNjDz5KENufXeZF5bBCM241gbMEdzIxid6fNlCMJXqU3C1mgQl0zJCRqIWYflcgBdArJWzyaWbfjmPBcfFg8iYdxKssJwENsC_3-KfoJV2U8Wr7jZoBOVnT0mZwGDkHOYKRpWc3IPB2F2kO5N_YtQPHe2HWFjFhI0w0Lly09_gezrx6lu1OmJsbzMve5lpOT5RJcmT5IujhFMk0guWJhrf4HoPVAoj60Bi1AyKPtxH8-xVBbrlCyjTf1U2RVL-W-SK9E-pz3Edpj6_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-4">
+<span class="text-white font-bold text-sm">System Load Projection</span>
+<span class="text-white/70 text-xs">-15% Database overhead expected</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer CTA -->
+<div class="p-6 bg-white border-t border-outline-variant">
+<button class="w-full py-3 bg-secondary text-on-secondary font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-secondary-container transition-all">
+<span class="material-symbols-outlined">send</span>
+                        Export Summary
+                    </button>
+</div>
+</aside>
+</main>
+</div>
+<script>
+        // Micro-interactions
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const insightsContainer = document.getElementById('insightsContainer');
+
+        analyzeBtn.addEventListener('click', () => {
+            // Simulated analysis effect
+            analyzeBtn.innerHTML = `
+                <span class="material-symbols-outlined animate-spin">sync</span>
+                Analyzing...
+            `;
+            analyzeBtn.classList.add('opacity-80', 'pointer-events-none');
+
+            // Visual feedback on the side panel
+            insightsContainer.style.opacity = '0.5';
+            insightsContainer.style.filter = 'blur(2px)';
+
+            setTimeout(() => {
+                analyzeBtn.innerHTML = `
+                    <span class="material-symbols-outlined">done_all</span>
+                    Analysis Complete
+                `;
+                analyzeBtn.classList.remove('bg-primary');
+                analyzeBtn.classList.add('bg-green-600');
+                
+                insightsContainer.style.opacity = '1';
+                insightsContainer.style.filter = 'blur(0)';
+
+                setTimeout(() => {
+                    analyzeBtn.innerHTML = `
+                        <span class="material-symbols-outlined">bolt</span>
+                        Analyze Transcript
+                    `;
+                    analyzeBtn.classList.add('bg-primary');
+                    analyzeBtn.classList.remove('bg-green-600', 'opacity-80', 'pointer-events-none');
+                }, 2000);
+            }, 1500);
+        });
+
+        // Contenteditable focus effect
+        document.querySelectorAll('[contenteditable]').forEach(el => {
+            el.addEventListener('focus', () => {
+                const parent = el.closest('.transcript-line');
+                if (parent) {
+                    parent.classList.add('bg-surface-container-lowest');
+                }
+            });
+            el.addEventListener('blur', () => {
+                const parent = el.closest('.transcript-line');
+                if (parent) {
+                    parent.classList.remove('bg-surface-container-lowest');
+                }
+            });
+        });
+    </script>
+</body></html>

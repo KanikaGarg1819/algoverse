@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Insights Dashboard | InsightEngine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#191c1e",
+                    "on-primary-container": "#7c839b",
+                    "surface-bright": "#f7f9fb",
+                    "primary": "#000000",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-container": "#fefcff",
+                    "on-secondary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#c6c6cd",
+                    "tertiary-fixed": "#ffddb8",
+                    "inverse-on-surface": "#eff1f3",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "surface-tint": "#565e74",
+                    "on-primary-fixed-variant": "#3f465c",
+                    "surface-container-low": "#f2f4f6",
+                    "on-secondary-fixed-variant": "#004395",
+                    "outline": "#76777d",
+                    "on-primary-fixed": "#131b2e",
+                    "on-error-container": "#93000a",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e0e3e5",
+                    "surface": "#f7f9fb",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-tertiary-fixed": "#2a1700",
+                    "on-surface": "#191c1e",
+                    "secondary": "#0058be",
+                    "surface-container": "#eceef0",
+                    "on-surface-variant": "#45464d",
+                    "primary-fixed": "#dae2fd",
+                    "surface-variant": "#e0e3e5",
+                    "inverse-primary": "#bec6e0",
+                    "tertiary-container": "#2a1700",
+                    "on-secondary-fixed": "#001a42",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "inverse-surface": "#2d3133"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-sm": "12px",
+                    "stack-md": "24px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "base": "8px",
+                    "container-max": "1280px",
+                    "stack-lg": "48px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Hanken Grotesk"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "quote-display": ["Inter"],
+                    "display-lg": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "26px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "quote-display": ["20px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e2e8f0;
+            border-radius: 10px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-fixed">
+<!-- SideNavBar (Shared Component Anchor) -->
+<nav class="h-screen w-64 fixed left-0 top-0 bg-surface-container-low flex flex-col py-stack-md px-4 border-r border-outline-variant z-50 hidden md:flex">
+<div class="mb-10 px-2">
+<h1 class="font-headline-lg text-headline-lg font-semibold text-primary">Transcript Pro</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-70">Enterprise Tier</p>
+</div>
+<div class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all scale-95 active:scale-100 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-sm text-label-sm">Workspace</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-secondary font-bold bg-secondary-fixed-dim/10 rounded-lg transition-all scale-95 active:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all scale-95 active:scale-100 duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">folder_open</span>
+<span class="font-label-sm text-label-sm">Library</span>
+</a>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-6 flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm text-label-sm">History</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-label-sm text-label-sm">Help</span>
+</a>
+<button class="mt-4 bg-primary text-on-primary py-3 rounded-xl font-label-sm text-label-sm font-bold active:opacity-80 transition-opacity">
+                Upgrade Plan
+            </button>
+</div>
+</nav>
+<main class="md:ml-64 min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component Anchor) -->
+<header class="w-full top-0 sticky bg-surface flex justify-between items-center px-gutter h-16 z-40 border-b border-outline-variant">
+<div class="flex items-center gap-6">
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-primary">InsightEngine</span>
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-1.5 bg-surface-container-low border-none rounded-full w-64 focus:ring-2 focus:ring-secondary text-body-md" placeholder="Search insights..." type="text"/>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-2 py-1 font-body-md text-body-md cursor-pointer active:opacity-80" href="#">Overview</a>
+<a class="text-secondary font-bold border-b-2 border-secondary px-2 py-1 font-body-md text-body-md cursor-pointer active:opacity-80" href="#">Analytics</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors px-2 py-1 font-body-md text-body-md cursor-pointer active:opacity-80" href="#">Reports</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-low p-2 rounded-full">settings</button>
+<div class="h-8 w-px bg-outline-variant mx-1"></div>
+<button class="bg-secondary text-on-secondary-container px-4 py-2 rounded-lg font-body-md text-body-md font-bold hover:opacity-90 active:opacity-80 transition-all">
+                    New Transcript
+                </button>
+<img alt="User profile" class="w-9 h-9 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a corporate executive in a modern office setting. The lighting is soft and natural, emphasizing a clean and authoritative aesthetic. He wears a dark tailored suit that contrasts with the bright, minimalist background of frosted glass and white walls. The image has a high-end, modern business feel with a shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuL8jb552bHacqGbi_oXTnP7Qd8pa02iZjkVuE7Kn81wXHJmUNUTBKnniJYfDUtLLWasDBuoF_2p4csU08a0CihF99NfXxbG1MP5aoc9OZP56IusgRGW1uWHuzh65TKHLRC6SysSpgSYooJXXesECMRst9wvEkX4qOIjFwGVN--RSuP5vq8dPzr2Q7hp4OMX0UYKIqZ0nPXMTPqznRhgtFKQssrdepbcAIxmpBDmNc-TunY9CE5ZI_P2c7EKihIo3ZwpuY8EdblfBH"/>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-gutter max-w-container-max mx-auto w-full flex flex-col gap-stack-md">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Q4 Product Strategy Review</h2>
+<p class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-base">calendar_today</span> Oct 24, 2023 • 42 mins
+                        <span class="ml-4 px-2 py-0.5 bg-surface-container-highest rounded-lg text-label-sm font-label-sm">TRANSCRIPT PROCESSED</span>
+</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 px-4 py-2 border border-outline rounded-xl hover:bg-surface-container-low transition-colors font-body-md">
+<span class="material-symbols-outlined">share</span> Share
+                    </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-xl hover:opacity-90 transition-all font-body-md shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined">download</span> Export Summary
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- AI Summary Card (Main Content) -->
+<div class="lg:col-span-8 space-y-gutter">
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-secondary"></div>
+<div class="flex justify-between items-start mb-6">
+<h3 class="font-headline-lg text-headline-lg text-primary">Executive Summary</h3>
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm rounded-full">AI GENERATED</span>
+</div>
+<div class="space-y-4 text-body-lg text-on-surface-variant leading-relaxed">
+<p>The meeting primarily focused on the <span class="text-secondary font-semibold">Q4 product roadmap</span> and the realignment of development resources toward the Enterprise API suite. Stakeholders agreed that the current timeline for the mobile refresh is secondary to the stability of the core infrastructure.</p>
+<p>Key consensus was reached on the <span class="underline decoration-secondary-fixed-dim decoration-4 underline-offset-4">new pricing model</span>, which will transition from per-seat to usage-based metrics by January. There was notable friction regarding the allocation of the QA budget, which remains an open discussion point for the next sync.</p>
+</div>
+<!-- Key Insight Highlight -->
+<div class="mt-8 bg-surface-container-low border-l-4 border-secondary p-6 rounded-r-xl">
+<div class="flex items-center gap-2 mb-2 text-secondary font-bold">
+<span class="material-symbols-outlined">lightbulb</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Critical Insight</span>
+</div>
+<p class="italic text-quote-display font-quote-display text-on-surface">"The shift to usage-based pricing is predicted to increase MRR by 18% within the first quarter of implementation."</p>
+</div>
+</section>
+<!-- Speaker Participation -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-8">
+<h3 class="font-headline-lg text-headline-lg text-primary mb-8">Speaker Insights</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Speaker 1 -->
+<div class="p-4 border border-outline-variant rounded-xl hover:border-secondary transition-colors cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<div class="h-10 w-10 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-on-secondary-fixed">JD</div>
+<div>
+<p class="font-bold text-on-surface">Jane Doe</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Product Lead</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Participation</span>
+<span>45%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full">
+<div class="h-full bg-secondary rounded-full" style="width: 45%"></div>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 italic">Focused on roadmap and vision.</p>
+</div>
+</div>
+<!-- Speaker 2 -->
+<div class="p-4 border border-outline-variant rounded-xl hover:border-secondary transition-colors cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<div class="h-10 w-10 rounded-full bg-tertiary-fixed-dim flex items-center justify-center font-bold text-on-tertiary-fixed">MS</div>
+<div>
+<p class="font-bold text-on-surface">Mark Smith</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Engineering VP</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Participation</span>
+<span>32%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full">
+<div class="h-full bg-secondary rounded-full" style="width: 32%"></div>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 italic">Concerned with technical debt.</p>
+</div>
+</div>
+<!-- Speaker 3 -->
+<div class="p-4 border border-outline-variant rounded-xl hover:border-secondary transition-colors cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<div class="h-10 w-10 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-on-surface">AL</div>
+<div>
+<p class="font-bold text-on-surface">Alex Lee</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Sales Director</p>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span>Participation</span>
+<span>23%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full">
+<div class="h-full bg-secondary rounded-full" style="width: 23%"></div>
+</div>
+<p class="text-xs text-on-surface-variant mt-2 italic">Advocated for pricing changes.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column (Sidebar Widgets) -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Action Items -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">task_alt</span>
+                                Action Items
+                            </h3>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded text-xs font-bold">5 TOTAL</span>
+</div>
+<div class="space-y-4">
+<label class="flex items-start gap-3 p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<input class="mt-1 w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<div class="flex-grow">
+<p class="font-body-md text-on-surface">Draft usage-based pricing proposal</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Assignee: Alex Lee • Due: Oct 30</p>
+</div>
+</label>
+<label class="flex items-start gap-3 p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<input class="mt-1 w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary" type="checkbox"/>
+<div class="flex-grow">
+<p class="font-body-md text-on-surface">Finalize API documentation v2.1</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Assignee: Mark Smith • Due: Nov 05</p>
+</div>
+</label>
+<label class="flex items-start gap-3 p-3 hover:bg-surface-container-low rounded-lg transition-colors cursor-pointer group">
+<input checked="" class="mt-1 w-5 h-5 rounded border-outline-variant text-secondary focus:ring-secondary opacity-50" type="checkbox"/>
+<div class="flex-grow">
+<p class="font-body-md text-on-surface line-through opacity-50">Circulate meeting minutes</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant line-through opacity-50">Completed by AI</p>
+</div>
+</label>
+</div>
+<button class="w-full mt-6 py-2 border-2 border-dashed border-outline-variant rounded-lg text-outline font-label-sm text-label-sm hover:border-secondary hover:text-secondary transition-all">
+                            + ADD CUSTOM TASK
+                        </button>
+</section>
+<!-- Sentiment Analysis -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl p-6 overflow-hidden">
+<h3 class="font-bold text-primary mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">analytics</span>
+                            Sentiment Analysis
+                        </h3>
+<div class="flex flex-col items-center py-4">
+<div class="relative h-32 w-32 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle class="text-surface-container-high" cx="64" cy="64" fill="none" r="56" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-secondary transition-all duration-1000 ease-out" cx="64" cy="64" fill="none" r="56" stroke="currentColor" stroke-dasharray="351.85" stroke-dashoffset="87.9" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-headline-lg font-headline-lg text-primary">75%</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-tighter">Positive</span>
+</div>
+</div>
+<p class="text-center text-body-md text-on-surface-variant mt-6 leading-tight">
+                                High confidence and collaborative tone detected throughout 80% of the session.
+                            </p>
+</div>
+<div class="mt-4 space-y-3">
+<div class="flex items-center gap-2">
+<div class="h-2 flex-grow bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 75%"></div>
+</div>
+<span class="text-xs font-label-sm w-12 text-right">Positive</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-2 flex-grow bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-surface-dim" style="width: 20%"></div>
+</div>
+<span class="text-xs font-label-sm w-12 text-right">Neutral</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="h-2 flex-grow bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error" style="width: 5%"></div>
+</div>
+<span class="text-xs font-label-sm w-12 text-right">Friction</span>
+</div>
+</div>
+</section>
+<!-- Data Visualization/Placeholder -->
+<div class="relative h-48 rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A clean, high-resolution close-up of a digital analytics dashboard showing abstract data visualizations. The aesthetic is corporate and modern, featuring soft blue and white gradients with thin, precise line graphs and minimalist data points. The lighting is crisp and bright, reflecting a professional software environment with a focus on data clarity and intelligence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnPsUrnBZ23YRsRtMsEIGVHrEWLv-b6Fv4Y7I9NUk5jHesExPnFmDtji_0kXV8AqmgCfRsz9D4XOg9pC2nrR0bB4z26JCK6zP6ru8sGZxdhPCsALcpFsMuI8SaWHDvTW-WSxxXdPRuZ0kYwl_KIdXJhggEy5XXyuien3tlf1ndsngS_13GRAJbmaYqdw3C-iNhI4mcrTA4eNvQnMQEDujq0wMYyMDxKOVaPNY8nEE_a8oyoZXQfnENDMWAcj1WiItVnHLJNHs8VeXO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+<div class="text-on-primary">
+<p class="font-bold text-body-md">Advanced Metrics</p>
+<p class="text-xs opacity-70">View deep-dive topic frequency</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / Attribution -->
+<footer class="mt-auto border-t border-outline-variant py-8 px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-center gap-4 opacity-50">
+<span class="font-label-sm text-label-sm">© 2023 InsightEngine AI</span>
+<div class="flex gap-6">
+<a class="font-label-sm text-label-sm hover:underline" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm hover:underline" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- Success Toast (Hidden by default) -->
+<div class="fixed bottom-8 right-8 bg-on-background text-on-secondary px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4 transform translate-y-24 opacity-0 transition-all duration-300 z-[100]" id="toast">
+<span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
+<div>
+<p class="font-bold">Summary Exported</p>
+<p class="text-sm opacity-80">PDF report is downloading...</p>
+</div>
+</div>
+<script>
+        // Simple micro-interaction for Export button
+        const exportBtn = document.querySelector('button:has(span:contains("download"))');
+        const toast = document.getElementById('toast');
+
+        function showToast() {
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // Custom selector helper since standard contains() isn't available in standard CSS selectors
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.innerText.includes('Export Summary')) {
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    showToast();
+                };
+            }
+        });
+
+        // Hover effect for speaker cards
+        document.querySelectorAll('.speaker-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-2px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
