@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "on-tertiary-container": "#009668",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed": "#131b2e",
+                        "primary": "#000000",
+                        "tertiary-fixed": "#6ffbbe",
+                        "primary-container": "#131b2e",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#002113",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "secondary": "#515f74",
+                        "background": "#f7f9fb",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c6c6cd",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-primary-container": "#7c839b",
+                        "inverse-surface": "#2d3133",
+                        "surface": "#f7f9fb",
+                        "on-secondary-container": "#57657b",
+                        "surface-tint": "#565e74",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "secondary-container": "#d5e3fd",
+                        "secondary-fixed": "#d5e3fd",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#45464d",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e0e3e5",
+                        "outline": "#76777d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .success-tick-animation {
+            animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface text-primary dark:text-primary-fixed-dim docked full-width top-0 border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none flex justify-between items-center w-full px-margin-desktop h-16 z-50 fixed">
+<div class="flex items-center gap-unit">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">TranscribePro</span>
+</div>
+
+</header>
+<div class="flex h-screen pt-16">
+<!-- SideNavBar -->
+
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col items-center justify-center p-margin-desktop relative overflow-hidden">
+<!-- Background Decorative Elements -->
+<div class="absolute top-0 left-0 w-full h-full -z-10 opacity-20 pointer-events-none">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-tertiary-fixed-dim/30 blur-3xl rounded-full"></div>
+<div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-fixed/30 blur-3xl rounded-full"></div>
+</div>
+<div class="max-w-2xl w-full text-center space-y-stack-lg">
+<!-- Success Icon Group -->
+<div class="relative inline-block">
+<div class="w-32 h-32 bg-on-tertiary-container/10 rounded-full flex items-center justify-center success-tick-animation">
+<span class="material-symbols-outlined text-[80px] text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Particle effect via floating icons -->
+<span class="absolute -top-4 -right-2 material-symbols-outlined text-tertiary-fixed-dim opacity-60 animate-bounce">auto_awesome</span>
+<span class="absolute bottom-0 -left-6 material-symbols-outlined text-secondary opacity-40">celebration</span>
+</div>
+<!-- Text Content -->
+<div class="space-y-stack-md">
+<h1 class="text-headline-xl font-headline-xl text-primary tracking-tight">Transcript Successfully Processed</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-lg mx-auto">
+                        An email with the summary has been sent to your inbox. Your workspace has been updated with the new insights.
+                    </p>
+</div>
+<!-- Bento-style Meta Info Card -->
+
+<!-- Actions -->
+<div class="flex flex-col sm:flex-row gap-4 justify-center pt-stack-lg">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all shadow-lg active:scale-95">
+<span class="material-symbols-outlined text-xl">history</span>
+                        View History
+                    </button>
+<button class="border border-outline text-primary px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-surface-container-high transition-all active:scale-95">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+                        Process Another
+                    </button>
+</div>
+</div>
+<!-- Visual Asset (Subtle Illustration) -->
+<div class="mt-16 w-full max-w-4xl opacity-80 group">
+<img class="w-full h-48 object-cover rounded-2xl border border-outline-variant/50 shadow-xl group-hover:scale-[1.01] transition-transform duration-700" data-alt="A clean and professional data visualization dashboard shown on a sleek tablet screen. The interface features minimalist line charts and clean typography in a monochrome slate and white palette. Soft studio lighting highlights the premium textures and high-tech corporate aesthetic, suggesting a successful outcome of a complex data processing task." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9tZjXtxXala-6EHA_9szDWfLm-o9dmSSlZigsVJJE6SxpYns0XXNPOjHW8nfqmS5Xx9Tu42BKDTCQ3VTR7O9fZVD3ir0wUeqT_dx1JYUBHTVvnvx-8-s2XxvrQBsWDL7wp8lOlytELFi_XmDqIuh6xOTrklFkr_yaik1tISFhup9aZR-ad7sy-HXEINz2YTmmb8s4X1adOCPAGWNluX2uh5HtoXEOulNmUwYfSib7hduCbn8z5Iv4pxX-7QXiIVObx-UUkUP4gD0">
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest text-on-surface-variant dark:text-surface-variant border-t border-outline-variant dark:border-outline flex flex-col md:flex-row items-center px-margin-desktop py-stack-md w-full fixed bottom-0 z-50 justify-center">
+<div class="text-label-sm font-label-sm">© 2024 TranscribePro Inc.</div>
+
+</footer>
+<script>
+        // Micro-interaction: Hover effects for buttons
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseenter', () => {
+                button.classList.add('transition-transform', 'duration-150');
+            });
+        });
+
+        // Simulating some light movement on the background blobs
+        const blobs = document.querySelectorAll('.blur-3xl');
+        window.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            blobs.forEach((blob, index) => {
+                const shift = (index + 1) * 20;
+                blob.style.transform = `translate(${x * shift}px, ${y * shift}px)`;
+            });
+        });
+    </script>
+
+
+</body></html>
