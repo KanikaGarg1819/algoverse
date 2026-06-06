@@ -1,0 +1,236 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TranscribePro - New Processing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary-fixed": "#0d1c2f",
+                        "secondary-fixed-dim": "#b9c7e0",
+                        "on-tertiary-container": "#009668",
+                        "surface-bright": "#f7f9fb",
+                        "on-primary-fixed": "#131b2e",
+                        "primary": "#000000",
+                        "tertiary-fixed": "#6ffbbe",
+                        "primary-container": "#131b2e",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#002113",
+                        "on-secondary-fixed-variant": "#3a485c",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#bec6e0",
+                        "secondary": "#515f74",
+                        "background": "#f7f9fb",
+                        "tertiary": "#000000",
+                        "outline-variant": "#c6c6cd",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-primary-container": "#7c839b",
+                        "inverse-surface": "#2d3133",
+                        "surface": "#f7f9fb",
+                        "on-secondary-container": "#57657b",
+                        "surface-tint": "#565e74",
+                        "on-tertiary": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "secondary-container": "#d5e3fd",
+                        "secondary-fixed": "#d5e3fd",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-fixed": "#dae2fd",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#45464d",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e0e3e5",
+                        "outline": "#76777d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "40px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Manrope"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e8e0; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-hidden h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none flex justify-between items-center w-full px-margin-desktop h-16 z-50 sticky top-0">
+<div class="flex items-center gap-stack-sm">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">TranscribePro</span>
+</div>
+<div class="flex items-center gap-gutter">
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="text-primary dark:text-primary-fixed-dim font-semibold transition-opacity active:opacity-80 font-body-md" href="#">New Processing</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-colors px-stack-sm py-1 rounded font-body-md" href="#">History</a>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container p-2 rounded-full transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container p-2 rounded-full transition-colors" data-icon="settings">settings</button>
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJaycE8bhxKU7lY7Jx-J9koqx-gmfZxZ8M4PuNjJ3OMutfW97kcZELYXCgCeeqWcn4Qki9VaAX94b9ZJrmlQcuGwBN-eVFRdnqgFRHlN-sillNJyIz--HOpe9NGm7Z_8TSxEYQe8OZ7u4QcM227uvWghVulkgQOvPpfYMvoC2ut_tFWwCt09_Sz-n5aPs4-e6AedMWiI10YSkX4eZ7Bwn25sJNT12yCGngfsHBw7-ly30R_gi8Q7gxQia22A2b4wQMdm0cVWWY1LQ">
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- SideNavBar -->
+
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto p-margin-desktop">
+<div class="max-w-container-max mx-auto h-full flex flex-col gap-stack-lg">
+<!-- Header & Instructions -->
+<section class="space-y-stack-sm">
+<h1 class="font-headline-lg text-headline-lg text-primary">New Transcript Processing</h1>
+<p class="text-body-lg text-on-surface-variant max-w-2xl">
+                        Optimize your workflow by converting audio or text logs into structured data. Choose between manual input or direct file upload to begin analysis.
+                    </p>
+</section>
+<!-- Bento Grid Layout for Inputs -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter flex-1 items-stretch">
+<!-- Left Column: Large Text Area -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl border border-outline-variant p-stack-lg shadow-sm flex flex-col">
+<div class="flex justify-between items-center mb-stack-md">
+<label class="font-label-md text-label-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="notes">notes</span>
+                                Paste Transcript Content
+                            </label>
+<span class="text-label-sm text-on-surface-variant">Max 50,000 characters</span>
+</div>
+<textarea class="flex-1 w-full p-stack-md bg-background border border-outline rounded-lg focus:ring-2 focus:ring-primary focus:border-primary resize-none font-body-md text-on-surface transition-all placeholder:text-outline/50" placeholder="Paste your meeting notes, lecture transcripts, or raw text logs here..."></textarea>
+</div>
+<!-- Right Column: File Upload & Configuration -->
+<div class="space-y-gutter flex flex-col">
+<!-- Drag & Drop Area -->
+<div class="bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl p-stack-lg flex flex-col items-center justify-center text-center group hover:border-primary transition-all cursor-pointer h-64" id="drop-zone">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-stack-md group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary transition-colors text-[32px]" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<p class="text-label-md font-label-md text-primary font-bold">Upload Document</p>
+<p class="text-body-sm text-on-surface-variant mt-1 px-4">Drag and drop audio (mp3, wav) or text (.txt, .docx) files</p>
+<button class="mt-stack-md text-primary font-bold text-label-md underline hover:text-on-surface-variant transition-colors">Browse files</button>
+</div>
+<!-- Processing Options Card -->
+
+<!-- Action Button -->
+<div class="mt-auto">
+<button class="w-full bg-primary text-on-primary py-stack-lg rounded-xl font-headline-md text-headline-md flex items-center justify-center gap-stack-md hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg group">
+<span class="">Process Transcript</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="text-center text-label-sm text-on-surface-variant mt-stack-md flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+                                AI-powered high precision analysis
+                            </p>
+</div>
+</div>
+</div>
+<!-- Footer Stats / Recent Chips -->
+
+</div>
+</main>
+</div>
+<!-- Global Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-highest border-t border-outline-variant dark:border-outline flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-md w-full relative z-50">
+<p class="text-label-sm font-label-sm text-on-surface-variant dark:text-surface-variant">© 2024 TranscribePro Inc.</p>
+
+</footer>
+<script>
+        // Simple micro-interaction for drop-zone
+        const dropZone = document.getElementById('drop-zone');
+        
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => {
+                dropZone.classList.add('border-primary', 'bg-surface-container-high');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => {
+                dropZone.classList.remove('border-primary', 'bg-surface-container-high');
+            }, false);
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            console.log('File dropped');
+            // Mock file handle
+        }, false);
+    </script>
+
+
+</body></html>
